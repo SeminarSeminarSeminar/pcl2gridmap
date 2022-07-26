@@ -1,3 +1,3 @@
-/mnt/c/Users/dlwjd/workspace/pcl2octomap/build/CMakeFiles/pcl2grid.dir
-/mnt/c/Users/dlwjd/workspace/pcl2octomap/build/CMakeFiles/edit_cache.dir
-/mnt/c/Users/dlwjd/workspace/pcl2octomap/build/CMakeFiles/rebuild_cache.dir
+/home/alpha/Desktop/Project/pcl2gridmap/build/CMakeFiles/edit_cache.dir
+/home/alpha/Desktop/Project/pcl2gridmap/build/CMakeFiles/rebuild_cache.dir
+/home/alpha/Desktop/Project/pcl2gridmap/build/CMakeFiles/remove_outlier.dir

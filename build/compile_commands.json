@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/home/alpha/Desktop/Project/pcl2gridmap/build",
+  "command": "/usr/bin/g++-9 -DDISABLE_LIBUSB_1_0 -DDISABLE_PCAP -DDISABLE_PNG -Dqh_QHpointer -DvtkRenderingContext2D_AUTOINIT=\"1(vtkRenderingContextOpenGL2)\" -DvtkRenderingCore_AUTOINIT=\"3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)\" -I/home/alpha/Desktop/Project/pcl2gridmap -I/home/alpha/Desktop/Project/pcl2gridmap/header -isystem /usr/include/vtk-7.1 -isystem /usr/include/freetype2 -isystem /usr/local/include/pcl-1.10 -isystem /usr/include/eigen3 -isystem /usr/local/include/opencv -g -w -g -march=native -msse4.2 -mfpmath=sse -std=gnu++14 -o CMakeFiles/remove_outlier.dir/src/remove_outlier.cc.o -c /home/alpha/Desktop/Project/pcl2gridmap/src/remove_outlier.cc",
+  "file": "/home/alpha/Desktop/Project/pcl2gridmap/src/remove_outlier.cc"
+},
+{
+  "directory": "/home/alpha/Desktop/Project/pcl2gridmap/build",
+  "command": "/usr/bin/g++-9 -DDISABLE_LIBUSB_1_0 -DDISABLE_PCAP -DDISABLE_PNG -Dqh_QHpointer -DvtkRenderingContext2D_AUTOINIT=\"1(vtkRenderingContextOpenGL2)\" -DvtkRenderingCore_AUTOINIT=\"3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)\" -I/home/alpha/Desktop/Project/pcl2gridmap -I/home/alpha/Desktop/Project/pcl2gridmap/header -isystem /usr/include/vtk-7.1 -isystem /usr/include/freetype2 -isystem /usr/local/include/pcl-1.10 -isystem /usr/include/eigen3 -isystem /usr/local/include/opencv -g -w -g -march=native -msse4.2 -mfpmath=sse -std=gnu++14 -o CMakeFiles/remove_outlier.dir/src/heatmap_filtering.cpp.o -c /home/alpha/Desktop/Project/pcl2gridmap/src/heatmap_filtering.cpp",
+  "file": "/home/alpha/Desktop/Project/pcl2gridmap/src/heatmap_filtering.cpp"
+}
+]

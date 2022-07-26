@@ -9,9 +9,12 @@ link_directories(${PCL_LIBRARY_DIRS})
 
 # Build examples
 
-
-
-add_executable(remove_outlier src/remove_outlier.cc)
+INCLUDE_DIRECTORIES(
+                        ${PROJECT_SOURCE_DIR}/
+                        ${PROJECT_SOURCE_DIR}/header
+                    )
+add_compile_options(-w -g) #-fno-elide-constructors)
+add_executable(remove_outlier src/remove_outlier.cc src/heatmap_filtering.cpp)
 target_link_libraries(remove_outlier ${OpenCV_LIBRARIES}
 ${PCL_LIBRARIES})
 
