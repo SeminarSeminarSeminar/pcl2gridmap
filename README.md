@@ -11,7 +11,7 @@ process of removing outliers is needed. The output including only inliners is st
 [statistical outlier removal](https://pcl.readthedocs.io/projects/tutorials/en/latest/statistical_outlier.html)
 ```
 cd build
-./remove_outlier [pointcloud filename]
+./remove_outlier [pointcloud file]
 ```
 
 ## 3. Generating Gridmap from pointcloud map
@@ -21,12 +21,17 @@ the pcl2grid\_converter.py file.
 
 ```
 cd src
-python pcl2grid_converter.py [pointcloud filename]
+python pcl2grid_converter.py [pointcloud file]
 ```
 
 ## 4. Loading Generated gridmap
 ```
-python gridmap_loader.py [gridmap filename]
+python gridmap_loader.py [gridmap file]
+```
+
+## 5. Visualizing map and trajectory
+```
+python draw.py [pointcloud filename] [framepose file]
 ```
 
 ## 5. TODO
