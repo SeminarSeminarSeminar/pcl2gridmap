@@ -35,6 +35,6 @@ python draw.py [pointcloud file] [framepose file]
 ```
 
 ## 5. TODO
-A way to generate a gridmap with a uniform scale should be considered
+A way to generate a gridmap with a uniform scale should be considered.
 
 
