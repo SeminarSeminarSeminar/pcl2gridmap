@@ -31,7 +31,7 @@ python gridmap_loader.py [gridmap file]
 
 ## 5. Visualizing map and trajectory
 ```
-python draw.py [pointcloud filename] [framepose file]
+python draw.py [pointcloud file] [framepose file]
 ```
 
 ## 5. TODO
