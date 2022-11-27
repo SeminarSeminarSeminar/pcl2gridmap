@@ -69,44 +69,74 @@ def load_frame(file_path):
 		if not line: break
 		tokens = line.split()
 		frame_id = tokens[0]
-		frame_pos.append([tokens[4], tokens[4+4], tokens[4*3]])
+		frame_pos.append([frame_id, tokens[4], tokens[4+4], tokens[4*3]])
 	frame_pos = np.array(frame_pos,np.float32)
-	frame_pos = np.reshape(frame_pos, (-1, 3))
+	frame_pos = np.reshape(frame_pos, (-1, 4))
 	return frame_pos
 
+
+def load_db_frame_map(file_path):
+	print("reading db-frame map")
+	fp = open(file_path, "r")
+
+	db_frame_map = []
+	while(True):
+		line = fp.readline()
+		if not line:break
+		tokens = line.split()
+		db_frame_map.append(tokens)
+	db_frame_map = np.array(db_frame_map, dtype = np.int32)
+	db_frame_map = np.reshape(db_frame_map, (-1,2))
+	return db_frame_map
+		
 
 def main():
 	map_file_path = sys.argv[1]
 	frame_file_path = sys.argv[2]
+	db_frame_file_path = sys.argv[3]
 
 	pcl_map = load_map(map_file_path)
 	grid_map = convert_pcl2grid(pcl_map)
+	frame_pos = load_frame(frame_file_path)		
+	db_frame_map = load_db_frame_map(db_frame_file_path)
 
-	frame_pos = load_frame(frame_file_path)
 	x_max = np.max(pcl_map[:,0])
 	x_min = np.min(pcl_map[:,0])
 	z_max = np.max(pcl_map[:,2])
 	z_min = np.min(pcl_map[:,2])
 
-	frame_x_max = np.max(frame_pos[:,0])
-	frame_x_min = np.min(frame_pos[:,0])
-	frame_y_max = np.max(frame_pos[:,1])
-	frame_y_min = np.min(frame_pos[:,1])
-	frame_z_max = np.max(frame_pos[:,2])
-	frame_z_min = np.min(frame_pos[:,2])
+	frame_x_max = np.max(frame_pos[:,1])
+	frame_x_min = np.min(frame_pos[:,1])
+	frame_y_max = np.max(frame_pos[:,2])
+	frame_y_min = np.min(frame_pos[:,2])
+	frame_z_max = np.max(frame_pos[:,3])
+	frame_z_min = np.min(frame_pos[:,3])
 
 
 	print("map", x_max, x_min, z_max, z_min)
 	print("frame", frame_x_max, frame_x_min, frame_y_max, frame_y_min, frame_z_max, frame_z_min)
 	for point in frame_pos:
-		x,y,z = point
+		frame_id, x,y,z = point
 		x = int(x//SCALE + abs(x_min)//SCALE)
 		z = int(z//SCALE + abs(z_min)//SCALE)
 		grid_map[z+OFFSET, x+OFFSET] = [255,0,0]
 	
-	img = Image.fromarray(grid_map)
-	plt.imshow(grid_map)
-	plt.show()
+	for p in db_frame_map:
+		db_id, frame_id = p
+		point = frame_pos[frame_pos[:,0]==frame_id].flatten()
+		dummy, x,y,z = point
+		x = int(x//SCALE + abs(x_min)//SCALE)
+		z = int(z//SCALE + abs(z_min)//SCALE)
+		grid_map[z+OFFSET, x+OFFSET] = [0,0,255]
+
+		cv2.imshow('aa',grid_map)
+		cv2.waitKey(1000)
+		#img = Image.fromarray(grid_map)
+
+	cv2.destroyAllWindows()
+	
+	#plt.imshow(grid_map)
+	#plt.show()
 
 if __name__ == "__main__":
 	main()
